@@ -1,0 +1,108 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/side_nav_bar"
+    tools:context="com.morales.labo7t.agregar">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="#4b0e33"
+            android:text="NUEVO ESTUDIANTE"
+            android:textSize="30sp"
+            android:layout_gravity="center"/>
+
+        <LinearLayout
+            android:layout_marginTop="30sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#4b0e33"
+                android:text="Carnet: "
+                style="@style/AlertDialog.AppCompat"
+                android:textSize="30sp"/>
+            <EditText
+                android:id="@+id/carnetAgregarEdit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#2d091d"
+                android:hint="Escribir carnet"
+                style="@style/AlertDialog.AppCompat"
+                android:inputType="number"
+                android:textSize="30sp"
+                />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+
+            <TextView
+                android:textColor="#4b0e33"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nombre: "
+                style="@style/AlertDialog.AppCompat"
+                android:textSize="30sp"/>
+            <EditText
+                android:id="@+id/nombreAgregrar"
+                android:textColor="#2d091d"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Escribir nombre"
+                style="@style/AlertDialog.AppCompat"
+                android:inputType="text"
+                android:textSize="30sp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+
+            <TextView
+                android:textColor="#4b0e33"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nota: "
+                style="@style/AlertDialog.AppCompat"
+                android:textSize="30sp"/>
+            <EditText
+                android:id="@+id/notaAgregar"
+                android:textColor="#2d091d"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Escribir nota"
+                android:inputType="numberDecimal"
+                style="@style/AlertDialog.AppCompat"
+                android:textSize="30sp"/>
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/btnAgregar"
+            android:layout_marginTop="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="  AGREGAR  "
+            android:textColor="#4b0e33"
+            android:textSize="20sp"
+            android:background="#f2cfe2"/>
+    </LinearLayout>
+
+</FrameLayout>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    xmlns:card_view="http://schemas.android.com/tools"
+    android:id="@+id/cardview"
+    xmlns:cardview="http://schemas.android.com/apk/res-auto"
+    card_view:cardUseCompatPadding="true"
+    card_view:cardBackgroundColor="#eff0f0"
+    android:layout_marginTop="5dp"
+    android:elevation="7dp"
+    card_view:cardCornerRadius="4dp">
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="250dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center">
+
+        <TextView
+            android:id="@+id/carnetCardView"
+            android:layout_width="match_parent"
+            android:layout_gravity="center"
+            android:text="carnet"
+            android:layout_height="wrap_content"
+            android:textColor="#2d091d"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/nombreCardView"
+            android:text="nombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#2d091d"
+            android:layout_weight="1"/>
+
+
+    </LinearLayout>
+
+        <TextView
+            android:id="@+id/notaCardView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="80sp"
+            android:textColor="#2d091d"
+            android:textStyle="bold"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+</android.support.v7.widget.CardView>

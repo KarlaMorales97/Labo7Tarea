@@ -1,0 +1,129 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/side_nav_bar"
+    tools:context="com.morales.labo7t.modificar">
+
+    <!-- TODO: Update blank fragment layout -->
+   <LinearLayout
+       android:layout_marginTop="35dp"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginLeft="15dp"
+       android:layout_marginRight="15dp"
+       android:layout_gravity="center_horizontal"
+       android:orientation="vertical">
+
+       <LinearLayout
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal"
+           android:layout_gravity="center">
+
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Carnet: "
+               android:textColor="#4b0e33"
+               android:textSize="25sp"/>
+
+           <EditText
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:hint="Introducir carnet"
+               android:textColor="#2d091d"
+               android:textSize="25sp"/>
+
+       </LinearLayout>
+       <Button
+           android:layout_marginTop="10dp"
+           android:layout_gravity="center"
+           android:background="#e2c9da"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:textColor="#4b0e33"
+           android:text=" BUSCAR "/>
+
+       <LinearLayout
+           android:layout_marginTop="30dp"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal"
+           android:layout_gravity="center">
+
+           <TextView
+               android:id="@+id/nombreModificarText"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Nombre: "
+               android:textColor="#4b0e33"
+               android:textSize="25sp"/>
+
+           <EditText
+               android:id="@+id/nombreModificarE"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:hint="Nombre"
+               android:textColor="#2d091d"
+               android:textSize="25sp"/>
+
+       </LinearLayout>
+       <LinearLayout
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal"
+           android:layout_gravity="center">
+
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Nota: "
+               android:textColor="#4b0e33"
+               android:textSize="25sp"/>
+
+           <EditText
+               android:id="@+id/notaEditTextM"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:hint="Nota"
+               android:textColor="#2d091d"
+               android:textSize="25sp"/>
+
+       </LinearLayout>
+
+       <LinearLayout
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal"
+           android:layout_marginTop="40dp">
+
+           <Button
+               android:id="@+id/btnEliminarM"
+               android:background="#e2c9da"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:textColor="#4b0e33"
+               android:text=" ELIMINAR "/>
+           <Button
+               android:id="@+id/btnActualizarM"
+               android:background="#e2c9da"
+               android:layout_marginLeft="5dp"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:textColor="#4b0e33"
+               android:text=" ACTUALIZAR "/>
+           <Button
+               android:id="@+id/btnLimpiarM"
+               android:background="#e2c9da"
+               android:layout_marginLeft="5dp"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:textColor="#4b0e33"
+               android:text=" LIMPIAR "/>
+
+       </LinearLayout>
+
+   </LinearLayout>
+
+</FrameLayout>
