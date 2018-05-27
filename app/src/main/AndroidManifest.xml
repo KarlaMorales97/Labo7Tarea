@@ -20,6 +20,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".agregar" />
+        <activity android:name=".cardview.cardview"></activity>
     </application>
 
 </manifest>

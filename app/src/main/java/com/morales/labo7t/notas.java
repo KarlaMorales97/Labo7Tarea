@@ -47,6 +47,7 @@ public class notas extends Fragment implements agregar.OnFragmentInteractionList
     ArrayList<estudiante> listBeneficiary;
     RecyclerAdapter recyclerAdapter;
     private DBHelper databaseHelper;
+    TextView promedio;
     private ArrayList<estudiante> estudiantes;
 
     private OnFragmentInteractionListener mListener;
@@ -88,11 +89,17 @@ public class notas extends Fragment implements agregar.OnFragmentInteractionList
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_notas, container, false);
+
+        promedio= view.findViewById(R.id.Promedio);
+        String texto= ""+DBHelper.myDB.promedio();
+        promedio.setText(texto);
+
+
         recyclerView = view.findViewById(R.id.recycler);
         listBeneficiary = new ArrayList<>();
         LinearLayoutManager linearLayoutManager =  new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(linearLayoutManager);
-        myDB = new DBHelper(getContext());
+        //myDB = new DBHelper(getContext());
         listBeneficiary = DBHelper.myDB.getEstudiantesDBH();
         recyclerAdapter = new RecyclerAdapter(listBeneficiary);
         recyclerView.setAdapter(recyclerAdapter);
@@ -107,6 +114,13 @@ public class notas extends Fragment implements agregar.OnFragmentInteractionList
         }
     }
 
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        String ans= ""+DBHelper.myDB.promedio();
+        promedio.setText(ans);
+    }
 
 
     @Override

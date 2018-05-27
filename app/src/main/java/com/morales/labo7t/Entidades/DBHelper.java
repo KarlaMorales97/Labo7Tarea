@@ -23,6 +23,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public  static final String CAMPO_ID="carnet";
     public  static final String CAMPO_NOMBRE="nombre";
     public  static final String CAMPO_NOTA="nota";
+    public static final String  PROMEDIO = "SELECT AVG("+CAMPO_NOTA +") FROM "+TABLA_USUARIO;
     public  static final String CREAR_TABLA_USUARIO="CREATE TABLE "+ TABLA_USUARIO
             +"("+ CAMPO_ID +" TEXT,"+ CAMPO_NOMBRE + " TEXT," + CAMPO_NOTA + " TEXT)";
 
@@ -73,6 +74,22 @@ public class DBHelper extends SQLiteOpenHelper {
         db.insert(TABLA_USUARIO,null, values);
         Toast.makeText(context,P.getNombre()+"  Insertado con exito", Toast.LENGTH_SHORT).show();
         return true;
+    }
+
+
+    public float promedio() {
+
+        float Avg;
+        Cursor prom = db.rawQuery(PROMEDIO, null);
+        prom.moveToFirst();
+
+
+        Avg =(prom.getFloat(0));
+
+        prom.close();
+
+
+        return Avg;
     }
 
     public estudiante findUser(String carnet){

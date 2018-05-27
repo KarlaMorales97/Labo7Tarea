@@ -21,7 +21,6 @@ import java.util.ArrayList;
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.RecyclerViewHolder> {
 
     private ArrayList<estudiante> estudiantes;
-    private notas mContext;
     private ArrayList<estudiante> estudianteArrayList;
 
 
@@ -64,12 +63,12 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Recycl
 
         holder.textViewName.setText(estudiantes.get(position).getNombre());
         holder.textViewCarnet.setText(estudiantes.get(position).getCarnet());
+        holder.notas.setText(estudiantes.get(position).getNota());
        // holder.textViewAddress.setText(estudiantes.get(position).getAddress());
     }
 
     @Override
     public int getItemCount() {
-        estudiantes = new ArrayList<>();
         return estudiantes.size();
 
     }
