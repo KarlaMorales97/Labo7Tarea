@@ -98,6 +98,8 @@ public class modificar extends Fragment {
                     Toast.makeText(getContext(),"El usuario no fue encontrado", Toast.LENGTH_SHORT).show();
                     limpiar();
                 }
+
+
                 else{
                     nombre.setText(P.getNombre());
                     nota.setText(P.getNota());
