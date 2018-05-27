@@ -25,6 +25,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Recycl
 
 
 
+
+
     public static class RecyclerViewHolder extends RecyclerView.ViewHolder{
         CardView cardView;
         Context context;
