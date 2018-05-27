@@ -107,11 +107,14 @@ public class notas extends Fragment implements agregar.OnFragmentInteractionList
         }
     }
 
+
+
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
 
     }
+
 
     @Override
     public void onDetach() {
@@ -121,7 +124,6 @@ public class notas extends Fragment implements agregar.OnFragmentInteractionList
 
     @Override
     public void onFragmentInteraction(Uri uri) {
-
     }
 
     /**

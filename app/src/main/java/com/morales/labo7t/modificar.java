@@ -7,6 +7,14 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import com.morales.labo7t.Datos.estudiante;
+import com.morales.labo7t.Entidades.DBHelper;
+
+import static java.lang.Float.parseFloat;
 
 
 /**
@@ -26,6 +34,11 @@ public class modificar extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+
+    EditText carnet,nombre,nota;
+    private Button btnBuscar,btnEliminar,btnActualizar,btnLimpiar;
+    private boolean flag=false;
 
     private OnFragmentInteractionListener mListener;
 
@@ -64,7 +77,71 @@ public class modificar extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_modificar, container, false);
+        View view = inflater.inflate(R.layout.fragment_modificar, container, false);
+
+       // carnet =(EditText) view.findViewById(R.id);
+        carnet = (EditText) view.findViewById(R.id.carnetModificar);
+        nombre = (EditText)view.findViewById(R.id.nombreModificarE);
+        nota = (EditText)view.findViewById(R.id.notaEditTextM);
+        btnBuscar = (Button)view.findViewById(R.id.btnBuscar);
+        btnActualizar = (Button)view.findViewById(R.id.btnActualizarM);
+        btnEliminar = (Button)view.findViewById(R.id.btnEliminarM);
+        btnLimpiar = (Button)view.findViewById(R.id.btnLimpiarM);
+
+
+
+        btnBuscar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                estudiante P = DBHelper.myDB.findUser(carnet.getText().toString());
+                if(P==null){
+                    Toast.makeText(getContext(),"El usuario no fue encontrado", Toast.LENGTH_SHORT).show();
+                    limpiar();
+                }
+                else{
+                    nombre.setText(P.getNombre());
+                    nota.setText(P.getNota());
+                    flag=true;
+                }
+            }
+        });
+
+
+        btnActualizar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!flag) {
+                    Toast.makeText(getContext(), "El usuario no existe", Toast.LENGTH_SHORT).show();
+                } else {
+                    if (parseFloat(nota.getText().toString()) > 100) {
+                        Toast.makeText(getContext(), "Nota erronea", Toast.LENGTH_SHORT).show();
+                        limpiar();
+                        flag = false;
+                    } else {
+                        DBHelper.myDB.editUser(new estudiante(carnet.getText().toString(), nombre.getText().toString(), nota.getText().toString()));
+                        flag=false;
+                    }
+                }
+            }
+        });
+
+        btnEliminar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DBHelper.myDB.deleteUser(carnet.getText().toString());
+                limpiar();
+            }
+        });
+
+        btnLimpiar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                limpiar();
+            }
+        });
+
+
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -90,6 +167,13 @@ public class modificar extends Fragment {
         super.onDetach();
         mListener = null;
     }
+
+    public void limpiar(){
+        nombre.setText("");
+        carnet.setText("");
+        nota.setText("");
+    }
+
 
     /**
      * This interface must be implemented by activities that contain this

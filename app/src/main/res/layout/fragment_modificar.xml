@@ -29,14 +29,17 @@
                android:textSize="25sp"/>
 
            <EditText
+
                android:layout_width="match_parent"
                android:layout_height="wrap_content"
                android:hint="Introducir carnet"
                android:textColor="#2d091d"
+               android:id="@+id/carnetModificar"
                android:textSize="25sp"/>
 
        </LinearLayout>
        <Button
+           android:id="@+id/btnBuscar"
            android:layout_marginTop="10dp"
            android:layout_gravity="center"
            android:background="#e2c9da"

@@ -6,7 +6,7 @@ package com.morales.labo7t.Datos;
 
 public class estudiante {
     private String carnet, nombre;
-    private float nota;
+    private String nota;
 
 
     public estudiante(String carnet, String nombre) {
@@ -14,10 +14,10 @@ public class estudiante {
         this.nombre = nombre;
     }
 
-    public estudiante() {
-    }
 
-    public estudiante(String carnet, String nombre, float nota) {
+    public estudiante(){}
+
+    public estudiante(String carnet, String nombre, String nota) {
         this.carnet = carnet;
         this.nombre = nombre;
         this.nota = nota;
@@ -39,11 +39,11 @@ public class estudiante {
         this.nombre = nombre;
     }
 
-    public float getNota() {
+    public String getNota() {
         return nota;
     }
 
-    public void setNota(float nota) {
+    public void setNota(String nota) {
         this.nota = nota;
     }
 }

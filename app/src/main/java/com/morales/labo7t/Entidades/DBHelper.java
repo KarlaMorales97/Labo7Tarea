@@ -78,14 +78,21 @@ public class DBHelper extends SQLiteOpenHelper {
     public estudiante findUser(String carnet){
         estudiante p;
         String[] parametros = {carnet};
-        String[] campos = {CAMPO_NOMBRE, CAMPO_NOTA};
-        //String[] notas = {CAMPO_NOTA};
-        try {
+        String[] campos = {CAMPO_NOMBRE};
+        String[] camposn = {CAMPO_NOTA};
 
-            Cursor cursor = db.query(TABLA_USUARIO,campos,CAMPO_ID+"=?", parametros, null, null,null);
+        try {
+            Cursor cursor = db.query(TABLA_USUARIO, campos, CAMPO_ID + "=?", parametros, null, null, null);
             cursor.moveToFirst();
-            p = new estudiante(carnet, cursor.getString(0));
-        }catch (Exception e){
+
+            Cursor cursorn = db.query(TABLA_USUARIO, camposn, CAMPO_ID + "=?", parametros, null, null, null);
+            cursorn.moveToFirst();
+
+            p = new estudiante(carnet, cursor.getString(0), cursorn.getString(0));
+            cursor.close();
+            cursorn.close();
+
+        } catch (Exception e) {
             p = null;
         }
         return p;
@@ -94,17 +101,21 @@ public class DBHelper extends SQLiteOpenHelper {
     public boolean editUser(estudiante p){
         String[] parametros = {p.getCarnet()};
         String[] campos = {CAMPO_NOMBRE};
+        String[] notas = {CAMPO_NOTA};
         ContentValues values = new ContentValues();
-        values.put(CAMPO_NOMBRE,p.getNombre());
-        db.update(TABLA_USUARIO,values,CAMPO_ID+"=?", parametros);
-        Toast.makeText(context, "Usuario actualizado con exito", Toast.LENGTH_SHORT).show();
+        ContentValues valuesNota = new ContentValues();
+        values.put(CAMPO_NOMBRE, p.getNombre());
+        valuesNota.put(CAMPO_NOTA, p.getNota());
+        db.update(TABLA_USUARIO, values, CAMPO_ID + "=?", parametros);
+        db.update(TABLA_USUARIO, valuesNota, CAMPO_ID + "=?", parametros);
+        Toast.makeText(context, "Usuario Actualizado con exito", Toast.LENGTH_SHORT).show();
         return true;
     }
 
     public boolean deleteUser(String carnet){
         String[] parametros = {carnet};
-        db.delete(TABLA_USUARIO,CAMPO_ID+"=?", parametros);
-        Toast.makeText(context, "Usuario eliminado con exito", Toast.LENGTH_SHORT).show();
+        db.delete(TABLA_USUARIO, CAMPO_ID + "=?", parametros);
+        Toast.makeText(context, "Usuario Eliminado con exito", Toast.LENGTH_SHORT).show();
         return true;
     }
 
