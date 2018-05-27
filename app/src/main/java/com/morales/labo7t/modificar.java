@@ -114,7 +114,7 @@ public class modificar extends Fragment {
                     Toast.makeText(getContext(), "El usuario no existe", Toast.LENGTH_SHORT).show();
                 } else {
                     if (parseFloat(nota.getText().toString()) > 100) {
-                        Toast.makeText(getContext(), "Nota erronea", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), "Verificar nota", Toast.LENGTH_SHORT).show();
                         limpiar();
                         flag = false;
                     } else {

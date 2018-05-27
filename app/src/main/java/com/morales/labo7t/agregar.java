@@ -101,7 +101,7 @@ public class agregar extends Fragment {
                 myDB = new DBHelper(getContext());
 
                 flag = DBHelper.myDB.add(new estudiante(
-                        txtCarnet.getText().toString(), txtNombre.getText().toString()));
+                        txtCarnet.getText().toString(), txtNombre.getText().toString(), editNota.getText().toString()));
 
                 if(flag){
                     Log.d("Edit", txtCarnet.getText().toString());
